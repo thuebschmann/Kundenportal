@@ -9,81 +9,65 @@ const Rechnungen = db.rechnungen;
 
 const KundeData = [
   {
-    name: 'James Watson',
+    name: 'Gertrude Belle Elion',
 
-    vorname: "Goin' hog huntin'",
+    vorname: 'That damn Bill Stull',
 
-    strasse: 'Let me tell ya',
+    strasse: 'My boss gonna fire me',
 
-    plz: "I'm washing my hands of it",
+    plz: 'Got depression, Smith and Wessen',
 
-    ort: 'Yup',
+    ort: 'Reminds me of my old girlfriend Olga Goodntight',
 
-    land: 'No one tells me shit',
-
-    // type code here for "relation_many" field
-  },
-
-  {
-    name: 'Linus Pauling',
-
-    vorname: "How 'bout them Cowboys",
-
-    strasse: "That Barbala couldn't fly his way out of a wet paper bag",
-
-    plz: 'Let me tell ya',
-
-    ort: "It's around here somewhere",
-
-    land: 'Might be DQ time',
+    land: 'Yup',
 
     // type code here for "relation_many" field
   },
 
   {
-    name: 'Jean Baptiste Lamarck',
+    name: 'B. F. Skinner',
 
-    vorname: 'So I was walking Oscar',
+    vorname: 'That damn gimble',
 
-    strasse: 'I tell you what',
+    strasse: 'That damn diabetes',
 
-    plz: 'That damn gimble',
+    plz: 'Turd gone wrong',
 
-    ort: "That's messed up",
+    ort: 'I want my 5$ back',
 
-    land: 'My buddy Harlen',
+    land: 'Like a red-headed stepchild',
 
     // type code here for "relation_many" field
   },
 
   {
-    name: 'Edward Teller',
+    name: 'Christiaan Huygens',
 
-    vorname: 'That goddamn Datamate',
+    vorname: 'That damn diabetes',
 
-    strasse: 'So I was walking Oscar',
+    strasse: 'Contact the tower',
 
-    plz: 'My buddy Harlen',
+    plz: 'That goddamn Datamate',
 
-    ort: 'Might be DQ time',
+    ort: 'That goddamn Datamate',
+
+    land: "Goin' hog huntin'",
+
+    // type code here for "relation_many" field
+  },
+
+  {
+    name: 'Franz Boas',
+
+    vorname: 'That damn Bill Stull',
+
+    strasse: 'That damn diabetes',
+
+    plz: 'I got that scurvy',
+
+    ort: 'I got that scurvy',
 
     land: 'Always the last one to the party',
-
-    // type code here for "relation_many" field
-  },
-
-  {
-    name: 'Erwin Schrodinger',
-
-    vorname: 'Let me tell ya',
-
-    strasse: 'I want my 5$ back',
-
-    plz: 'So I was walking Oscar',
-
-    ort: 'Yup',
-
-    land: "Y'all never listen to me",
 
     // type code here for "relation_many" field
   },
@@ -91,61 +75,49 @@ const KundeData = [
 
 const ProjektData = [
   {
-    name: 'Dmitri Mendeleev',
-
-    status: 5,
-
-    url: "How 'bout them Cowboys",
-
-    apikey: 'Got depression, Smith and Wessen',
-
-    // type code here for "relation_many" field
-  },
-
-  {
-    name: 'Hermann von Helmholtz',
-
-    status: 4,
-
-    url: 'Got depression, Smith and Wessen',
-
-    apikey: "Y'all never listen to me",
-
-    // type code here for "relation_many" field
-  },
-
-  {
-    name: 'Isaac Newton',
-
-    status: 3,
-
-    url: 'My boss gonna fire me',
-
-    apikey: "That Barbala couldn't fly his way out of a wet paper bag",
-
-    // type code here for "relation_many" field
-  },
-
-  {
     name: 'Sheldon Glashow',
 
-    status: 5,
+    status: 7,
 
-    url: 'My buddy Harlen',
+    url: "That Barbala couldn't fly his way out of a wet paper bag",
 
-    apikey: 'I want my damn cart back',
+    apikey: "Goin' hog huntin'",
 
     // type code here for "relation_many" field
   },
 
   {
-    name: 'Comte de Buffon',
+    name: 'Jean Baptiste Lamarck',
 
-    status: 1,
+    status: 2,
 
-    url: "C'mon Naomi",
+    url: "I'm washing my hands of it",
 
-    apikey: 'I want my 5$ back',
+    apikey: 'I tell you what',
+
+    // type code here for "relation_many" field
+  },
+
+  {
+    name: 'Ernest Rutherford',
+
+    status: 8,
+
+    url: 'I want my 5$ back',
+
+    apikey: 'That goddamn Datamate',
+
+    // type code here for "relation_many" field
+  },
+
+  {
+    name: 'John von Neumann',
+
+    status: 9,
+
+    url: 'That damn gimble',
+
+    apikey: "I'm washing my hands of it",
 
     // type code here for "relation_many" field
   },
@@ -153,33 +125,27 @@ const ProjektData = [
 
 const RechnungenData = [
   {
-    invoice_id: 7,
-
-    projekt_id: 6,
-  },
-
-  {
     invoice_id: 1,
 
-    projekt_id: 2,
+    projekt_id: 4,
   },
 
   {
-    invoice_id: 6,
+    invoice_id: 3,
 
-    projekt_id: 2,
-  },
-
-  {
-    invoice_id: 6,
-
-    projekt_id: 8,
+    projekt_id: 9,
   },
 
   {
     invoice_id: 9,
 
-    projekt_id: 7,
+    projekt_id: 4,
+  },
+
+  {
+    invoice_id: 2,
+
+    projekt_id: 3,
   },
 ];
 
