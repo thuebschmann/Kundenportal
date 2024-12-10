@@ -1,0 +1,821 @@
+swagger: '2.0'
+info:
+  description: Kundenportal Online REST API for Testing and Prototyping application. You can perform all major operations with your entities - create, delete and etc.
+  version: 1.0.0
+  title: Kundenportal
+
+basePath: /api/
+tags:
+  - name: Auth
+    description: Authorization operations
+
+  - name: users
+    description: users managing API
+
+  - name: affilate
+    description: affilate managing API
+
+  - name: kunde
+    description: kunde managing API
+
+  - name: projekt
+    description: projekt managing API
+
+  - name: projekt_access
+    description: projekt_access managing API
+
+  - name: rechnungen
+    description: rechnungen managing API
+
+paths:
+  /auth/signin/local:
+    post:
+      tags:
+        - Auth
+      summary: Logs user into the system
+      description: Logs user into the system
+      operationId: loginUser
+      produces:
+        - application/xml
+        - application/json
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid username/password supplied
+      parameters:
+        - in: body
+          name: body
+          description: Logs user into the system
+          required: true
+          schema:
+            $ref: "#/definitions/Auth"
+  /auth/me:
+    get:
+      tags:
+        - Auth
+      summary: "Get current authorized user info"
+      description: Get current authorized user info
+      operationId: getUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful retrieval of current authorized user data
+        '400':
+          description: Invalid username/password supplied
+      security:
+        - bearer: []
+  /auth/signup:
+    post:
+      tags:
+        - Auth
+      summary: Register new user into the system
+      description: 'Register new user into the system'
+      operationId: LogsUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: name
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Successful login
+        '400':
+          description: Invalid username/password supplied
+      security:
+        - api_key: [ ]
+
+  /users:
+    post:
+      tags:
+        - users
+      summary: "Add new item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Add new item
+          required: true
+          schema:
+            $ref: "#/definitions/users"
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    get:
+      tags:
+        - users
+      summary: "Get all item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    put:
+      tags:
+        - users
+      summary: "Update the data of the selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+        - in: "body"
+          name: "body"
+          description: "Updated object"
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        '200':
+          description: The item was successfully updated
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    delete:
+      tags:
+        - users
+      summary: "Delete selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: "Successful operation"
+        '405':
+          description: users not found
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+
+  /affilate:
+    post:
+      tags:
+        - affilate
+      summary: "Add new item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Add new item
+          required: true
+          schema:
+            $ref: "#/definitions/affilate"
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    get:
+      tags:
+        - affilate
+      summary: "Get all item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    put:
+      tags:
+        - affilate
+      summary: "Update the data of the selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+        - in: "body"
+          name: "body"
+          description: "Updated object"
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        '200':
+          description: The item was successfully updated
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    delete:
+      tags:
+        - affilate
+      summary: "Delete selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: "Successful operation"
+        '405':
+          description: affilate not found
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+
+  /kunde:
+    post:
+      tags:
+        - kunde
+      summary: "Add new item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Add new item
+          required: true
+          schema:
+            $ref: "#/definitions/kunde"
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    get:
+      tags:
+        - kunde
+      summary: "Get all item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    put:
+      tags:
+        - kunde
+      summary: "Update the data of the selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+        - in: "body"
+          name: "body"
+          description: "Updated object"
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        '200':
+          description: The item was successfully updated
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    delete:
+      tags:
+        - kunde
+      summary: "Delete selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: "Successful operation"
+        '405':
+          description: kunde not found
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+
+  /projekt:
+    post:
+      tags:
+        - projekt
+      summary: "Add new item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Add new item
+          required: true
+          schema:
+            $ref: "#/definitions/projekt"
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    get:
+      tags:
+        - projekt
+      summary: "Get all item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    put:
+      tags:
+        - projekt
+      summary: "Update the data of the selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+        - in: "body"
+          name: "body"
+          description: "Updated object"
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        '200':
+          description: The item was successfully updated
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    delete:
+      tags:
+        - projekt
+      summary: "Delete selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: "Successful operation"
+        '405':
+          description: projekt not found
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+
+  /projekt_access:
+    post:
+      tags:
+        - projekt_access
+      summary: "Add new item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Add new item
+          required: true
+          schema:
+            $ref: "#/definitions/projekt_access"
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    get:
+      tags:
+        - projekt_access
+      summary: "Get all item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    put:
+      tags:
+        - projekt_access
+      summary: "Update the data of the selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+        - in: "body"
+          name: "body"
+          description: "Updated object"
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        '200':
+          description: The item was successfully updated
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    delete:
+      tags:
+        - projekt_access
+      summary: "Delete selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: "Successful operation"
+        '405':
+          description: projekt_access not found
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+
+  /rechnungen:
+    post:
+      tags:
+        - rechnungen
+      summary: "Add new item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Add new item
+          required: true
+          schema:
+            $ref: "#/definitions/rechnungen"
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    get:
+      tags:
+        - rechnungen
+      summary: "Get all item"
+      description: Add new item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The item was successfully added
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    put:
+      tags:
+        - rechnungen
+      summary: "Update the data of the selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+        - in: "body"
+          name: "body"
+          description: "Updated object"
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        '200':
+          description: The item was successfully updated
+        '405':
+          description: Invalid input data
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+    delete:
+      tags:
+        - rechnungen
+      summary: "Delete selected item"
+      description: Update the data of the selected item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: "id"
+          in: path
+          description: "id that need to be updated"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: "Successful operation"
+        '405':
+          description: rechnungen not found
+        '500':
+          description: Some server error
+      security:
+        - bearer: [ ]
+
+definitions:
+  Auth:
+    type: object
+    properties:
+      email:
+        type: "string"
+        example: "admin@flatlogic.com"
+      password:
+        type: "string"
+        example: "password"
+    xml:
+      name: Auth
+
+  users:
+    type: object
+    properties:
+
+      firstName:
+        type: "true"
+
+      lastName:
+        type: "true"
+
+      phoneNumber:
+        type: "true"
+
+      email:
+        type: "true"
+
+      idusers:
+        type: "integer"
+
+    xml:
+      name: users
+
+  affilate:
+    type: object
+    properties:
+
+      werbende:
+        type: "integer"
+
+      geworbene:
+        type: "integer"
+
+    xml:
+      name: affilate
+
+  kunde:
+    type: object
+    properties:
+
+      name:
+        type: "true"
+
+      vorname:
+        type: "true"
+
+      strasse:
+        type: "true"
+
+      plz:
+        type: "true"
+
+      ort:
+        type: "true"
+
+      land:
+        type: "true"
+
+      partnernr:
+        type: "true"
+
+      firma:
+        type: "true"
+
+    xml:
+      name: kunde
+
+  projekt:
+    type: object
+    properties:
+
+      name:
+        type: "true"
+
+      status:
+        type: "integer"
+
+      url:
+        type: "true"
+
+      apikey:
+        type: "true"
+
+      username:
+        type: "true"
+
+      password:
+        type: "true"
+
+    xml:
+      name: projekt
+
+  projekt_access:
+    type: object
+    properties:
+
+      level:
+        type: "true"
+
+    xml:
+      name: projekt_access
+
+  rechnungen:
+    type: object
+    properties:
+
+      pv_invoice_id:
+        type: "integer"
+
+      projekt_id:
+        type: "integer"
+
+    xml:
+      name: rechnungen
+
+securityDefinitions:
+  bearer:
+    type: apiKey
+    name: Authorization
+    description: Enter your bearer token in the format **Bearer &lt;token>**
+    in: header
